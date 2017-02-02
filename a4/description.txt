@@ -1,0 +1,66 @@
+How To Run
+1. run collect.py
+2. run cluster.py
+3. run classify.py
+4. run summarize.py
+
+
+
+File Description
+collect.py
+Fetch user info
+Use twitter API to get target user and their friends, output user and 
+their friends id into output_user.txt with the form: 
+users    friend
+
+Fetch messages about 'Warcraft'
+Use twitter API to messages aboout 'Warcraft', output messages into output_message.txt
+
+
+cluster.py
+Use networkx to genarate graph from output_user.txt
+
+Divide graph into clusters
+First, eliminate nodes which have less than 2 degrees to get subgraph. 
+Second, set max_depth = 3 to generate bfs and use girvan newman to partition 
+graph into 2 clusters.
+
+output result into output_community.txt
+
+
+classify.py
+Read output_message.txt and classify data along twitter messages into 3 classifications, good, neutral and bad emotion.
+Emotion score > 0  Good
+Emotion score = 0  Neutral
+Emotion score < 0  Bad
+
+Output them into output_good_emotion.txt.
+Output them into output_neutral_emotion.txt.
+Output them into output_bad_emotion.txt.
+Output emotion summary into output_summary_emotion.txt.
+
+
+summarize.py
+read the output of the previous methods to write a textfile called summary.txt
+
+
+candidates.txt
+It contains candidates.
+
+
+Original Files
+collect.py
+cluster.py
+classify.py
+summarize.py
+candidates.txt
+
+Output Files
+output_user.txt
+output_message.txt
+output_community.txt
+output_good_emotion.txt.
+output_neutral_emotion.txt.
+output_bad_emotion.txt.
+output_summary_emotion.txt
+summary.txt
